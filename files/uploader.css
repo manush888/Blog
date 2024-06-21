@@ -7,12 +7,14 @@
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
+    flex-direction: column;
 }
 
 /* Header Styling */
@@ -28,25 +30,43 @@ header {
 }
 
 header p {
-    font-family: raleway;
     font-size: 24px;
+    font-weight: bold;
 }
 
-/* Form Styling */
-form {
+/* Upload Area Styling */
+.upload-area {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 100px;
+    text-align: center;
+    border: 2px dashed #ccc;
+    position: relative;
+}
+
+.upload-area.drag-over {
+    border-color: #007BFF;
+}
+
+.drag-drop-text {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #777;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input[type="file"] {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 16px;
+    display: none;
 }
 
 button {
@@ -57,10 +77,53 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background 0.3s ease;
 }
 
 button:hover {
     background: #0056b3;
+}
+
+/* Preview Area */
+.preview-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.preview-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-preview {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.file-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-info input {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 14px;
 }
 
 /* Responsive */
@@ -68,9 +131,14 @@ button:hover {
     body {
         padding: 20px;
     }
-    
-    form {
+
+    .upload-area {
         width: 100%;
         padding: 15px;
+    }
+
+    .preview-image {
+        max-width: 80px;
+        max-height: 80px;
     }
 }
